@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person lists</title>
+</head>
+<body>
+    {% for person in persons %}
+    <h2>{{ person.nick_name }}</h2>
+    <h3>{{ person.first_name }} {{ person.last_name }}</h3>
+    <p>{{ person.about }}</p>
+
+    {% if person.avatar %}
+        <img src="{{ person.avatar.url }}" width="150">
+    {% else %}
+        <p>Unkown</p>
+    {% endif %}
+    {% empty %}
+        <p>Person not found</p>
+    {% endfor %}
+    
+    <a href="person_form.html">Create new person</a>
+</body>
+</html>
